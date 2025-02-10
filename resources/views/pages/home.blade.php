@@ -1,7 +1,97 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        body {
+            background: linear-gradient(135deg, #B39DDB, #81D4FA); /* Gradasi biru ungu */
+            color: #4A148C;
+        }
+
+        .card {
+            padding: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: none; /* Hapus border default */
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan */
+            transition: transform 0.3s ease-in-out;
+        }
+
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card {
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, #B39DDB, #81D4FA);
+            border-image-slice: 1;
+        }
+
+
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-header {
+            padding: 15px;
+            background: #F3E5F5; /* Ungu pastel */
+            color: #4A148C;
+            font-weight: bold;
+        }
+
+        .btn-outline-primary {
+            
+            border-color: #7E57C2;
+            color: #7E57C2;
+            transition: background 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: #7E57C2;
+            color: white;
+        }
+
+        .btn-primary {
+            background: #7E57C2;
+            border: none;
+        }
+
+        .badge {
+            border-radius: 20px;
+            padding: 5px 10px;
+        }
+
+        .badge.text-bg-high {
+            background: #E57373; /* Merah untuk high priority */
+        }
+
+        .badge.text-bg-medium {
+            background: #FFD54F; /* Kuning untuk medium priority */
+        }
+
+        .badge.text-bg-low {
+            background: #81C784; /* Hijau untuk low priority */
+        }
+
+        .butterfly {
+            position: absolute;
+            width: 50px;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+
     <div id="content" class="overflow-y-hidden overflow-x-hidden">
+        
         @if ($lists->count() == 0)
             <div class="d-flex flex-column align-items-center">
                 <p class="fw-bold text-center">Belum ada tugas yang ditambahkan</p>
@@ -11,11 +101,12 @@
                 </button>
             </div>
         @endif
+
         <div class="d-flex gap-3 px-3 flex-nowrap overflow-x-scroll overflow-y-hidden" style="height: 100vh;">
             @foreach ($lists as $list)
                 <div class="card flex-shrink-0" style="width: 18rem; max-height: 80vh;">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                        <h4 class="card-title">{{ $list->name }}</h4>
+                        <h4 class="card-title">{{ $list->name }} 🦋</h4>
                         <form action="{{ route('lists.destroy', $list->id) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
@@ -37,7 +128,7 @@
                                                 </a>
                                                 <span class="badge text-bg-{{ $task->priorityClass }} badge-pill"
                                                     style="width: fit-content">
-                                                    {{ $task->priority }}
+                                                    {{ ucfirst($task->priority) }}
                                                 </span>
                                             </div>
                                             <form action="{{ route('tasks.destroy', $task->id) }}" method="POST"
@@ -67,7 +158,6 @@
                                                     </span>
                                                 </button>
                                             </form>
-
                                         </div>
                                     @endif
                                 </div>
@@ -86,6 +176,7 @@
                     </div>
                 </div>
             @endforeach
+
             <button type="button" class="btn btn-outline-primary flex-shrink-0" style="width: 18rem; height: fit-content;"
                 data-bs-toggle="modal" data-bs-target="#addListModal">
                 <span class="d-flex align-items-center justify-content-center">
