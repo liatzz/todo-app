@@ -61,6 +61,16 @@
         .btn-primary:hover {
             background: linear-gradient(135deg, #3813C2, #FF6FD8);
         }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #FF6F61, #D32F2F);
+            border: none;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #D32F2F, #FF6F61);
+        }
     </style>
 
     <div id="content" class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
@@ -84,12 +94,23 @@
             </div>
 
             <div class="text-center mt-4">
-                <button class="btn btn-primary">
+                
+                <!-- Tombol Edit -->
+                <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-primary">
                     <i class="bi bi-pencil-square"></i> Edit Tugas
-                </button>
-                <button class="btn btn-danger">
-                    <i class="bi bi-trash"></i> Hapus
-                </button>
+                </a>                
+                
+                    <i class="bi bi-pencil-square"></i> Edit Tugas
+                </a>
+
+                <!-- Tombol Hapus -->
+                <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="d-inline-block">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash"></i> Hapus
+                    </button>
+                </form>
             </div>
         </div>
     </div>
