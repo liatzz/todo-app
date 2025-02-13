@@ -56,7 +56,7 @@
             <div class="col-8">
                 <div class="card p-3" style="height: 80vh;">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                        <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 80%">
+                        <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 100%">
                             🦋 {{ $task->name }}
                             <span class="fs-6 fw-medium">Di {{ $task->list->name }}</span>
                         </h3>
