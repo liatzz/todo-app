@@ -52,16 +52,6 @@
             </div>
         @endif
 
-        <div class="row my-3 justify-content-center">
-            <div class="col-md-6">
-                <form action="{{ route('home') }}" method="GET" class="d-flex gap-2">
-                    <input type="text" class="form-control" name="query" placeholder="Cari tugas atau list..."
-                        value="{{ request()->query('query') }}">
-                    <button type="submit" class="btn btn-outline-primary">🔍 Cari</button>
-                </form>
-            </div>
-        </div>
-
         <div class="d-flex flex-wrap gap-4 justify-content-center">
             @foreach ($lists as $list)
                 <div class="card p-3" style="width: 20rem; background: rgba(255, 228, 225, 0.6);">
@@ -103,7 +93,7 @@
             @endforeach
 
             @if ($lists->count() !== 0)
-                <button type="button" class="btn btn-outline-primary p-3" data-bs-toggle="modal" data-bs-target="#addListModal">
+                <button type="button" class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#addListModal">
                     <i class="bi bi-plus"></i> 🎈 Tambah Daftar Baru
                 </button>
             @endif
