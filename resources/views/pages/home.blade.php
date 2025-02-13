@@ -57,7 +57,7 @@
                 <form action="{{ route('home') }}" method="GET" class="d-flex gap-2">
                     <input type="text" class="form-control" name="query" placeholder="Cari tugas atau list..."
                         value="{{ request()->query('query') }}">
-                    <button type="submit" class="btn btn-outline-primary">Cari</button>
+                    <button type="submit" class="btn btn-outline-primary">🔍 Cari</button>
                 </form>
             </div>
         </div>

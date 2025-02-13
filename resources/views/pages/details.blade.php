@@ -58,7 +58,7 @@
                     <div class="card-header d-flex align-items-center justify-content-between">
                         <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 80%">
                             🦋 {{ $task->name }}
-                            <span class="fs-6 fw-medium">di {{ $task->list->name }}</span>
+                            <span class="fs-6 fw-medium">Di {{ $task->list->name }}</span>
                         </h3>
                         <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
                             data-bs-target="#editTaskModal">
@@ -74,7 +74,7 @@
                         <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-outline-danger w-100">Hapus</button>
+                            <button type="submit" class="btn btn-sm btn-outline-danger w-100">🚮 Hapus</button>
                         </form>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
             <div class="col-4">
                 <div class="card p-3" style="height: 80vh;">
                     <div class="card-header d-flex align-items-center justify-content-between">
-                        <h3 class="fw-bold fs-4 text-truncate mb-0">🦋 Details</h3>
+                        <h3 class="fw-bold fs-4 text-truncate mb-0">🔍 Details</h3>
                     </div>
                     <div class="card-body d-flex flex-column gap-2">
                         <form action="{{ route('tasks.changeList', $task->id) }}" method="POST">
@@ -97,7 +97,7 @@
                             </select>
                         </form>
                         <h6 class="fs-6">
-                            Prioritas:
+                            📌 Prioritas:
                             <span class="badge text-bg-{{ $task->priorityClass }} badge-pill">
                                 {{ $task->priority }}
                             </span>
@@ -114,7 +114,7 @@
                 @method('PUT')
                 @csrf
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="editTaskModalLabel">Edit Task</h1>
+                    <h1 class="modal-title fs-5" id="editTaskModalLabel">Edit Task ✍️</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -137,8 +137,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal ❌</button>
+                    <button type="submit" class="btn btn-primary">Edit ✍️</button>
                 </div>
             </form>
         </div>
