@@ -50,6 +50,14 @@ class TaskController extends Controller
         return view('pages.home', $data);
     }
 
+    public function toggleComplete(Task $task)
+    {
+        $task->is_completed = !$task->is_completed;
+        $task->save();
+    
+        return redirect()->back()->with('success', 'Status tugas berhasil diperbarui!');
+    }
+    
 
     public function store(Request $request)
     {
@@ -62,6 +70,7 @@ class TaskController extends Controller
         Task::create([
             'name' => $request->name,
             'description' => $request->description,
+            'priority' => $request->priority,
             'list_id' => $request->list_id
         ]);
 
@@ -115,6 +124,7 @@ class TaskController extends Controller
             'list_id' => 'required',
             'name' => 'required|max:100',
             'description' => 'max:255',
+            'priority' => 'required',
             'priority' => 'required|in:low,medium,high'
         ]);
 

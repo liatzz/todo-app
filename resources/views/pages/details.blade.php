@@ -35,6 +35,11 @@
             width: 40px;
             height: 40px;
         }
+
+        .text-decoration-line-through {
+            text-decoration: line-through;
+            color: #b39ddb;
+        }
     </style>
 
     <div id="content" class="container">
@@ -45,12 +50,12 @@
             </a>
         </div>
 
-        @session('success')
+        @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        @endsession
+        @endif
 
         <div class="row my-3">
             <div class="col-8">
@@ -66,11 +71,20 @@
                         </button>
                     </div>
                     <div class="card-body">
-                        <p>
+                        <p class="{{ $task->is_completed ? 'text-decoration-line-through' : '' }}">
                             {{ $task->description }}
                         </p>
                     </div>
-                    <div class="card-footer text-center">
+                    <div class="card-footer text-center d-flex justify-content-between">
+                        <!-- Tombol Selesai -->
+                        <form action="{{ route('tasks.toggleComplete', $task->id) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="btn btn-sm btn-success w-100">
+                                {{ $task->is_completed ? '✅ Tandai Belum Selesai' : '✔️ Tandai Selesai' }}
+                            </button>
+                        </form>
+                        <!-- Tombol Hapus -->
                         <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -108,6 +122,7 @@
         </div>
     </div>
 
+    <!-- Modal Edit Task -->
     <div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="editTaskModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <form action="{{ route('tasks.update', $task->id) }}" method="POST" class="modal-content">

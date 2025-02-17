@@ -91,12 +91,6 @@
                     </div>
                 </div>
             @endforeach
-
-            @if ($lists->count() !== 0)
-                <button type="button" class="btn btn-outline-primary w-10" data-bs-toggle="modal" data-bs-target="#addListModal">
-                    <i class="bi bi-plus"></i> 🎈 Tambah Daftar Baru
-                </button>
-            @endif
         </div>
     </div>
 @endsection
