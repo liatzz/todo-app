@@ -6,7 +6,7 @@
             {{ config('app.name') }}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span> 
         </button>
 
         <!-- Form Pencarian & Tambah Daftar -->
@@ -18,7 +18,7 @@
                 <button type="button" class="btn btn-secondary" id="clearSearch">Clear</button>
                 @if ($lists->count() !== 0)
                 <button type="button" class="btn btn-outline-primary add-list-btn" data-bs-toggle="modal" data-bs-target="#addListModal">
-                    <i class="bi bi-plus"></i> 🎈 Tambah Daftar
+                    <i class="bi bi-plus"></i> 🎈 Tambah Daftar 🦋
                 </button>
                 @endif
                 
@@ -98,14 +98,14 @@
     }
 
     .add-list-btn {
-        border: 1px solid #007bff;
-        color: #007bff;
+        border: 1px solid #fa8df3;
+        color: #fa8df3;
         background: white;
         transition: 0.3s;
     }
 
     .add-list-btn:hover {
-        background: #007bff;
+        background: #f49cda;
         color: white;
     }
 
