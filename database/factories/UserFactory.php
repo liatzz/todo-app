@@ -12,28 +12,30 @@ use Illuminate\Support\Str;
 class UserFactory extends Factory
 {
     /**
-     * The current password being used by the factory.
+     * Menyimpan password yang sedang digunakan oleh factory.
+     * Ini bertujuan agar password yang di-hash tidak dibuat ulang setiap kali factory dipanggil.
      */
     protected static ?string $password;
 
     /**
-     * Define the model's default state.
+     * Menentukan state default untuk model User.
      *
      * @return array<string, mixed>
      */
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'name' => fake()->name(), // Menghasilkan nama pengguna secara acak
+            'email' => fake()->unique()->safeEmail(), // Menghasilkan email unik secara acak
+            'email_verified_at' => now(), // Menetapkan waktu verifikasi email menjadi sekarang
+            'password' => static::$password ??= Hash::make('password'), // Menggunakan password terenkripsi (default: "password")
+            'remember_token' => Str::random(10), // Menghasilkan token acak untuk fitur "remember me"
         ];
     }
 
     /**
-     * Indicate that the model's email address should be unverified.
+     * Menentukan bahwa email pengguna tidak diverifikasi.
+     * Ini akan mengganti nilai `email_verified_at` menjadi null.
      */
     public function unverified(): static
     {
