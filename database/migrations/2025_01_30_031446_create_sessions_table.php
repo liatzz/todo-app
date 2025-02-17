@@ -7,25 +7,25 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Menjalankan migrasi untuk membuat tabel "sessions".
      */
     public function up(): void
     {
         Schema::create('sessions', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
-            $table->string('ip_address', 45)->nullable();
-            $table->text('user_agent')->nullable();
-            $table->longText('payload');
-            $table->integer('last_activity')->index();
+            $table->string('id')->primary(); // ID sesi sebagai primary key
+            $table->foreignId('user_id')->nullable()->index(); // ID pengguna, bisa null, dengan indeks untuk mempercepat pencarian
+            $table->string('ip_address', 45)->nullable(); // Menyimpan alamat IP pengguna, bisa null
+            $table->text('user_agent')->nullable(); // Menyimpan informasi user agent (browser/device) pengguna, bisa null
+            $table->longText('payload'); // Menyimpan data sesi dalam bentuk teks panjang
+            $table->integer('last_activity')->index(); // Menyimpan waktu terakhir aktivitas pengguna dengan indeks agar lebih cepat di-query
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Membatalkan migrasi dengan menghapus tabel "sessions".
      */
     public function down(): void
     {
-        Schema::dropIfExists('sessions');
+        Schema::dropIfExists('sessions'); // Menghapus tabel sessions jika ada
     }
 };
