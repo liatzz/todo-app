@@ -4,29 +4,29 @@ namespace Database\Seeders;
 
 use App\Models\Task;
 use App\Models\TaskList;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class TaskSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Method ini digunakan untuk menambahkan data awal ke dalam tabel tasks.
      */
     public function run(): void
     {
+        // Array berisi daftar tugas yang akan dimasukkan ke dalam tabel tasks.
         $tasks = [
             [
                 'name' => 'Belajar Laravel',
                 'description' => 'Belajar Laravel di santri koding',
-                'is_completed' => false,
-                'priority' => 'medium',
-                'list_id' => TaskList::where('name', 'Belajar')->first()->id,
+                'is_completed' => false, // Status tugas belum selesai
+                'priority' => 'medium', // Prioritas tugas sedang
+                'list_id' => TaskList::where('name', 'Belajar')->first()->id, // Menghubungkan dengan daftar "Belajar"
             ],
             [
                 'name' => 'Belajar React',
                 'description' => 'Belajar React di WPU',
-                'is_completed' => true,
-                'priority' => 'high',
+                'is_completed' => true, // Tugas sudah selesai
+                'priority' => 'high', // Prioritas tinggi
                 'list_id' => TaskList::where('name', 'Belajar')->first()->id,
             ],
             [
@@ -34,7 +34,7 @@ class TaskSeeder extends Seeder
                 'description' => 'Liburan ke Pantai bersama keluarga',
                 'is_completed' => false,
                 'priority' => 'low',
-                'list_id' => TaskList::where('name', 'Liburan')->first()->id,
+                'list_id' => TaskList::where('name', 'Liburan')->first()->id, // Menghubungkan dengan daftar "Liburan"
             ],
             [
                 'name' => 'Villa',
@@ -48,7 +48,7 @@ class TaskSeeder extends Seeder
                 'description' => 'Tugas Matematika bu Nina',
                 'is_completed' => true,
                 'priority' => 'medium',
-                'list_id' => TaskList::where('name', 'Tugas')->first()->id,
+                'list_id' => TaskList::where('name', 'Tugas')->first()->id, // Menghubungkan dengan daftar "Tugas"
             ],
             [
                 'name' => 'PAIBP',
@@ -64,12 +64,12 @@ class TaskSeeder extends Seeder
                 'priority' => 'high',
                 'list_id' => TaskList::where('name', 'Tugas')->first()->id,
             ],
-             [
+            [
                 'name' => 'Pemancingan',
                 'description' => 'Mancing untuk menghilangkan jenuh',
                 'is_completed' => false,
                 'priority' => 'medium',
-                'list_id' => TaskList::where('name', 'Healing')->first()->id,
+                'list_id' => TaskList::where('name', 'Healing')->first()->id, // Menghubungkan dengan daftar "Healing"
             ],
             [
                 'name' => 'Ciater',
@@ -97,10 +97,11 @@ class TaskSeeder extends Seeder
                 'description' => 'Mengunjungi saudara di karawang',
                 'is_completed' => false,
                 'priority' => 'high',
-                'list_id' => TaskList::where('name', 'Acara Keluarga')->first()->id,
+                'list_id' => TaskList::where('name', 'Acara Keluarga')->first()->id, // Menghubungkan dengan daftar "Acara Keluarga"
             ],
         ];
 
+        // Memasukkan data langsung ke dalam database menggunakan insert()
         Task::insert($tasks);
     }
 }
