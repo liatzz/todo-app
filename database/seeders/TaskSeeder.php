@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Task;
 use App\Models\TaskList;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class TaskSeeder extends Seeder

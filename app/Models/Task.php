@@ -17,7 +17,8 @@ class Task extends Model
         'description',
         'is_completed',
         'priority',
-        'list_id'
+        'tasks',
+         'list_id'
     // $fillable → Daftar kolom yang boleh diisi secara massal (mass assignment) saat membuat atau memperbarui data.
     // Artinya, kolom name, description, is_completed, priority, list_id bisa diisi langsung menggunakan metode create() atau update() tanpa perlu request->validate() secara manual.    
     ];
@@ -29,6 +30,8 @@ class Task extends Model
     // $guarded → Daftar kolom yang tidak boleh diisi secara massal.
     // id, created_at, updated_at tidak bisa diubah langsung menggunakan mass assignment.    
     ];
+
+    protected $table = 'tasks';
 
     const PRIORITIES = [
         'low',

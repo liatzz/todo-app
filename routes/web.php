@@ -16,11 +16,3 @@ Route::patch('/tasks/{task}/complete', [TaskController::class, 'complete'])->nam
 Route::patch('/tasks/{task}/change-list', [TaskController::class, 'changeList'])->name('tasks.changeList');
 
 Route::patch('/tasks/{task}/toggle', [TaskController::class, 'toggleComplete'])->name('tasks.toggleComplete');
-
-Route::get('/privacy-policy', function () {
-    return view('privacy-policy');
-});
-
-Route::get('/terms', function () {
-    return view('terms');
-});
