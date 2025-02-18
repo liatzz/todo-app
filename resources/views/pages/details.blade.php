@@ -1,13 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.app') 
+<!-- Meng-extend template utama dari layouts/app.blade.php -->
 
-@section('content')
+@section('content') 
+<!-- Mulai bagian content yang akan diisi di dalam template utama -->
+
     <style>
+        /* Gaya latar belakang halaman */
         body {
             background: linear-gradient(to right, #fce4ec, #f8bbd0);
             font-family: 'Poppins', sans-serif;
             color: #6a1b9a;
         }
 
+        /* Styling untuk kartu tampilan */
         .card {
             border: 2px solid #f48fb1;
             border-radius: 15px;
@@ -16,26 +21,31 @@
             background: rgba(255, 228, 225, 0.8);
         }
 
+        /* Efek hover pada kartu */
         .card:hover {
             transform: translateY(-5px);
         }
 
+        /* Tombol outline primary */
         .btn-outline-primary {
             border-color: #d81b60;
             color: #d81b60;
             font-weight: bold;
         }
 
+        /* Hover untuk tombol outline primary */
         .btn-outline-primary:hover {
             background-color: #d81b60;
             color: white;
         }
 
+        /* Icon kupu-kupu */
         .butterfly-icon {
             width: 40px;
             height: 40px;
         }
 
+        /* Efek coret pada teks jika tugas sudah selesai */
         .text-decoration-line-through {
             text-decoration: line-through;
             color: #b39ddb;
@@ -43,6 +53,7 @@
     </style>
 
     <div id="content" class="container">
+        <!-- Tombol kembali ke halaman utama -->
         <div class="d-flex align-items-center">
             <a href="{{ route('home') }}" class="btn btn-sm">
                 <i class="bi bi-arrow-left-short fs-4"></i>
@@ -50,6 +61,7 @@
             </a>
         </div>
 
+        <!-- Menampilkan pesan sukses jika ada -->
         @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
@@ -61,22 +73,25 @@
             <div class="col-8">
                 <div class="card p-3" style="height: 80vh;">
                     <div class="card-header d-flex align-items-center justify-content-between">
+                        <!-- Menampilkan nama tugas dan kategori -->
                         <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 100%">
                             🦋 {{ $task->name }}
                             <span class="fs-6 fw-medium">Di {{ $task->list->name }}</span>
                         </h3>
+                        <!-- Tombol edit tugas -->
                         <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
                             data-bs-target="#editTaskModal">
                             <i class="bi bi-pencil-square"></i>
                         </button>
                     </div>
                     <div class="card-body">
+                        <!-- Menampilkan deskripsi tugas -->
                         <p class="{{ $task->is_completed ? 'text-decoration-line-through' : '' }}">
                             {{ $task->description }}
                         </p>
                     </div>
                     <div class="card-footer text-center d-flex justify-content-between">
-                        <!-- Tombol Selesai -->
+                        <!-- Tombol untuk menandai tugas selesai atau belum -->
                         <form action="{{ route('tasks.toggleComplete', $task->id) }}" method="POST">
                             @csrf
                             @method('PATCH')
@@ -84,7 +99,7 @@
                                 {{ $task->is_completed ? '✅ Tandai Belum Selesai' : '✔️ Tandai Selesai' }}
                             </button>
                         </form>
-                        <!-- Tombol Hapus -->
+                        <!-- Tombol untuk menghapus tugas -->
                         <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -99,6 +114,7 @@
                         <h3 class="fw-bold fs-4 text-truncate mb-0">🔍 Details</h3>
                     </div>
                     <div class="card-body d-flex flex-column gap-2">
+                        <!-- Dropdown untuk memindahkan tugas ke kategori lain -->
                         <form action="{{ route('tasks.changeList', $task->id) }}" method="POST">
                             @csrf
                             @method('PATCH')
@@ -110,6 +126,7 @@
                                 @endforeach
                             </select>
                         </form>
+                        <!-- Menampilkan prioritas tugas -->
                         <h6 class="fs-6">
                             📌 Prioritas:
                             <span class="badge text-bg-{{ $task->priorityClass }} badge-pill">
@@ -158,4 +175,5 @@
             </form>
         </div>
     </div>
-@endsection
+@endsection 
+<!-- Menutup section content -->
