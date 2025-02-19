@@ -1,0 +1,18 @@
+/* public/css/style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+footer {
+    background: linear-gradient(to right, #F7D6E0, #E0BBE4, #D4E6F1);
+    color: #4A4A4A;
+    padding: 30px 0;
+    text-align: center;
+    position: relative;
+}
+
+footer a {
+    color: #4A4A4A;
+    text-decoration: none;
+}

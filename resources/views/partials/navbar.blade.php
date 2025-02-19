@@ -21,10 +21,25 @@
                     <i class="bi bi-plus"></i> 🎈 Tambah Daftar 🦋
                 </button>
                 @endif
-                
             </div>
         </form>
 
+        <div class="dropdown">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="transition: 0.3s ease;">
+                <div class="profile-avatar">
+                    <img src="{{ asset('image/selia.jpg') }}" alt="Profil" class="rounded-circle" width="40" height="40">
+                </div>
+                <span class="fw-semibold ms-2">Selia Nur Sofian</span>
+            </a>
+        
+            <!-- Tambahkan menu dropdown -->
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                <li><a class="dropdown-item" href="#">Profil</a></li>
+                <li><a class="dropdown-item" href="#">Pengaturan</a></li>
+                <li><a class="dropdown-item text-danger" href="#">Keluar</a></li>
+            </ul>
+        </div>
         <script>
             document.getElementById('clearSearch').addEventListener('click', function () {
                 document.getElementById('searchQuery').value = ''; // Kosongkan input

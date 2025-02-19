@@ -13,6 +13,11 @@ class TaskListController extends Controller
 // TaskListController adalah controller dalam Laravel yang digunakan untuk mengelola daftar tugas (TaskList).
 // extends Controller berarti mewarisi fitur dari Controller, seperti middleware, validasi, dan fungsi lainnya.
 {
+    public function index()
+    {
+        $lists = TaskList::all(); // Ambil semua data lists dari database
+        return view('lists.index', compact('lists')); // Kirim ke view
+    }
     public function store(Request $request) {
         // menyimpan daftar tugas baru
         $request->validate([
