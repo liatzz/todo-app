@@ -25,13 +25,21 @@
         </form>
 
         <div class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none "
+            <!-- Link untuk membuka dropdown profil -->
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none"
                 id="profileDropdown"  aria-expanded="false" style="transition: 0.3s ease;">
+                
+                <!-- Avatar Profil -->
                 <div class="profile-avatar">
-                    <img src="{{ asset('image/selia.jpg') }}" alt="Profil" class="rounded-circle" width="40" height="40">
+                    <img src="{{ asset('image/selia.jpg') }}" alt="Profil" 
+                         class="rounded-circle" width="40" height="40">
                 </div>
+        
+                <!-- Nama Pengguna -->
                 <span class="fw-semibold ms-2">Selia Nur Sofian</span>
             </a>        
+        </div>
+        
     
         </div>
         <script>

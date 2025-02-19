@@ -18,7 +18,7 @@
         @endif
 
         <!-- Menampilkan daftar tugas jika ada -->
-        <div class="d-flex gap-3 px-3 flex-nowrap overflow-x-scroll overflow-y-hidden" style="height: 100vh;">
+        <div class="d-flex gap-3 px-3 flex-nowrap overflow-x-scroll overflow-y-hidden" style="height: 90vh;">
             @foreach ($lists as $list)  <!-- Iterasi untuk setiap list -->
                 <div class="card flex-shrink-0 shadow-lg" 
                      style="width: 18rem; max-height: 80vh; background: rgba(255, 228, 225, 0.9); border-radius: 15px;">
