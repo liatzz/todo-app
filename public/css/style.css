@@ -1,18 +1,33 @@
 /* public/css/style.css */
+
+/* Mengatur font default untuk seluruh halaman */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* Warna latar belakang abu-abu muda untuk tampilan yang bersih */
 }
 
+/* Styling untuk footer agar memiliki gradasi warna yang lembut */
 footer {
-    background: linear-gradient(to right, #F7D6E0, #E0BBE4, #D4E6F1);
-    color: #4A4A4A;
-    padding: 30px 0;
-    text-align: center;
-    position: relative;
+    background: linear-gradient(to right, #F7D6E0, #E0BBE4, #D4E6F1); /* Gradasi warna pastel */
+    color: #4A4A4A; /* Warna teks abu-abu gelap untuk kontras yang baik */
+    padding: 30px 0; /* Ruang atas dan bawah agar footer tidak terlalu padat */
+    text-align: center; /* Pusatkan teks di dalam footer */
+    position: relative; /* Pastikan footer tetap berada di bagian bawah */
 }
 
+/* Mengatur tampilan link dalam footer agar sesuai dengan warna teks */
 footer a {
     color: #4A4A4A;
-    text-decoration: none;
+    text-decoration: none; /* Hilangkan garis bawah pada link */
+}
+
+/* Efek hover untuk kartu agar terlihat lebih interaktif */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi transisi untuk efek halus */
+}
+
+/* Efek hover saat kursor menyentuh kartu */
+.card:hover {
+    transform: scale(1.05); /* Memperbesar kartu sedikit */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar untuk efek timbul */
 }

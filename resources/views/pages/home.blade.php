@@ -1,6 +1,7 @@
 @extends('layouts.app')  <!-- Memanggil layout utama aplikasi -->
 
 @section('content')  <!-- Menyisipkan konten di dalam bagian 'content' pada layout -->
+<link rel="stylesheet" href="css/style.css">
     <div id="content" class="overflow-y-hidden overflow-x-hidden" 
          style="background: linear-gradient(to right, #ffe4e1, #f8bbd0); min-height: 100vh; padding: 20px;">
         
