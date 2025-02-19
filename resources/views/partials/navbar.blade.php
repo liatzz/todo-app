@@ -31,12 +31,11 @@
                     <img src="{{ asset('image/selia.jpg') }}" alt="Profil" class="rounded-circle" width="40" height="40">
                 </div>
                 <span class="fw-semibold ms-2">Selia Nur Sofian</span>
-            </a>
+            </a>        
         
             <!-- Tambahkan menu dropdown -->
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                 <li><a class="dropdown-item" href="#">Profil</a></li>
-                <li><a class="dropdown-item" href="#">Pengaturan</a></li>
                 <li><a class="dropdown-item text-danger" href="#">Keluar</a></li>
             </ul>
         </div>

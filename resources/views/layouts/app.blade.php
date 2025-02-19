@@ -34,6 +34,9 @@
     <!-- Import file JavaScript dari dalam project -->
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script> <!-- Import Bootstrap JS -->
+    <!-- Bootstrap JS (Versi Terbaru) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
