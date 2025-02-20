@@ -1,6 +1,7 @@
 {{-- Navbar --}}
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: linear-gradient(to right, #FFB6C1, #f10486, #FFB6C1); box-shadow: 0 4px 90px rgba(0, 0, 0, 0.1); z-index: 1000;">
     <div class="container d-flex justify-content-between align-items-center">
+        
         <!-- Logo Aplikasi -->
         <a class="navbar-brand fw-bolder" href="#home" style="font-size: 1.6rem; transition: 0.3s; letter-spacing: 1px;">
             {{ config('app.name') }}

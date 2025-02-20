@@ -49,7 +49,7 @@
                     <label for="priority" class="form-label">Prioritas</label>
                     <select class="form-control" name="priority" id="priority">
                         <option value="low">Low</option>
-                        <option value="medium" selected>Medium</option> <!-- Default ke Medium -->
+                        <option value="medium" selected>Medium</option> <!-- Default ke low, medium, high -->
                         <option value="high">High</option>
                     </select>
                 </div>

@@ -7,9 +7,10 @@
         <p>Follow us on:
             <a href="https://facebook.com" class="text-dark" style="text-decoration: none;" target="_blank"> Facebook</a> |
             <a href="https://instagram.com" class="text-dark" style="text-decoration: none;" target="_blank"> Instagram</a> |
-            <a href="https://github.com/liatzz" class="text-dark" style="text-decoration: none;" target="_blank"> GitHub</a> <!-- Pastikan username benar -->
+            <a href="https://github.com/liatzz" class="text-dark" style="text-decoration: none;" target="_blank"> GitHub</a> <!-- fitur untuk menghubungi pengembang -->
         </p>
     </div>
+    
     <!-- Dekorasi emoji kupu-kupu untuk estetika -->
     <div style="position: absolute; bottom: 5%; left: 10%; opacity: 0.3; font-size: 50px;">
         🦋

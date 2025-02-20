@@ -25,11 +25,13 @@
             <div class="col-8">
                 <div class="card p-3" style="height: 80vh;">
                     <div class="card-header d-flex align-items-center justify-content-between">
+                        
                         <!-- Menampilkan nama tugas dan kategori -->
                         <h3 class="fw-bold fs-4 text-truncate mb-0" style="width: 100%">
                             🦋 {{ $task->name }}
                             <span class="fs-6 fw-medium">Di {{ $task->list->name }}</span>
                         </h3>
+
                         <!-- Tombol edit tugas -->
                         <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
                             data-bs-target="#editTaskModal">
@@ -37,12 +39,14 @@
                         </button>
                     </div>
                     <div class="card-body">
+
                         <!-- Menampilkan deskripsi tugas -->
                         <p class="{{ $task->is_completed ? 'text-decoration-line-through' : '' }}">
                             {{ $task->description }}
                         </p>
                     </div>
                     <div class="card-footer text-center d-flex justify-content-between">
+
                         <!-- Tombol untuk menandai tugas selesai atau belum -->
                         <div class="card-footer text-center d-flex justify-content-between">
                             <form id="toggleForm" action="{{ route('tasks.toggleComplete', $task->id) }}" method="POST">
@@ -140,7 +144,7 @@
                 </div>
             </form>
             <style>
-                
+
                 /* Gaya latar belakang halaman */
                 body {
                     background: linear-gradient(to right, #fce4ec, #f8bbd0);

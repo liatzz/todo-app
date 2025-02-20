@@ -66,6 +66,7 @@
                             <i class="bi bi-plus fs-5"></i> ❤️ Tambah Tugas 🦋
                         </button>
                     </div>
+
                         <!-- Menampilkan jumlah tugas di bagian bawah kartu -->
                         <div class="text-center mt-2 pt-2">
                             <span class="badge text-white px-3 py-2 rounded-pill" 
@@ -73,8 +74,8 @@
                                 Total Tugas: {{ $list->tasks->count() }}
                             </span>
                         </div>
-                </div>
-            @endforeach
+                    </div>
+                @endforeach
+            </div>
         </div>
-    </div>
-@endsection
+    @endsection
