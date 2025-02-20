@@ -1,7 +1,6 @@
 {{-- Navbar --}}
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: linear-gradient(to right, #FFB6C1, #f10486, #FFB6C1); box-shadow: 0 4px 90px rgba(0, 0, 0, 0.1); z-index: 1000;">
     <div class="container d-flex justify-content-between align-items-center">
-        
         <!-- Logo Aplikasi -->
         <a class="navbar-brand fw-bolder" href="#home" style="font-size: 1.6rem; transition: 0.3s; letter-spacing: 1px;">
             {{ config('app.name') }}
@@ -25,29 +24,40 @@
             </div>
         </form>
 
-        <div class="dropdown">
-            <!-- Link untuk membuka dropdown profil -->
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none"
-                id="profileDropdown"  aria-expanded="false" style="transition: 0.3s ease;">
-                
-                <!-- Avatar Profil -->
-                <div class="profile-avatar">
-                    <img src="{{ asset('image/selia.jpg') }}" alt="Profil" 
-                         class="rounded-circle" width="40" height="40">
-                </div>
+       <!-- Tambahkan Bootstrap CSS jika belum ada -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="dropdown">
+    <!-- Link untuk membuka dropdown profil -->
+    <a href="#" class="d-flex align-items-center text-white text-decoration-none"
+       id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="transition: 0.3s ease;">
         
-                <!-- Nama Pengguna -->
-                <span class="fw-semibold ms-2">Selia Nur Sofian</span>
-            </a>        
+        <!-- Avatar Profil -->
+        <div class="profile-avatar">
+            <img src="{{ asset('image/selia.jpg') }}" alt="Profil" 
+                 class="rounded-circle" width="40" height="40">
         </div>
-        
-    
-        </div>
+
+        <!-- Nama Pengguna -->
+        <span class="fw-semibold ms-2">Selia Nur Sofian</span>
+    </a>    
+
+    <!-- Dropdown Menu -->
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+        <li class=" text-center">
+            <!-- Avatar Besar -->
+            <img src="{{ asset('image/selia.jpg') }}" alt="Profil" class="rounded-circle" width="60" height="60">
+            <p class="fw-semibold mt-2 mb-0">Selia Nur Sofian</p>
+            <p class="text-muted mb-0">Smkn 2 Subang</p>
+            <p class="text-muted mb-0">Kalijati;Subang</p>
+        </li>
+    </ul>
+</div>
         <script>
-            document.getElementById('clearSearch').addEventListener('click', function () {
-                document.getElementById('searchQuery').value = ''; // Kosongkan input
-                window.location.href = "{{ route('home') }}"; // Redirect ke halaman awal
-            });
+        document.getElementById('clearSearch').addEventListener('click', function () {
+        document.getElementById('searchQuery').value = ''; // Kosongkan input
+        window.location.href = "{{ route('home') }}"; // Redirect ke halaman awal
+        });
         </script>
     </div>
 </nav>
