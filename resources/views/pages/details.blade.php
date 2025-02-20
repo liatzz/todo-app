@@ -53,14 +53,16 @@
                                 </button>
                             </form>
                         </div>
-                        
+
+                        {{-- untuk meyakinkan user untuk menandakan selesai atau batal --}}
                         <script>
                             function confirmToggle() {
                                 if (confirm("Apakah Anda yakin ingin mengubah status tugas ini?")) {
                                     document.getElementById("toggleForm").submit();
                                 }
                             }
-                        </script>                        
+                        </script>
+
                         <!-- Tombol untuk menghapus tugas -->
                         <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
                             @csrf
@@ -76,6 +78,7 @@
                         <h3 class="fw-bold fs-4 text-truncate mb-0">🔍 Details</h3>
                     </div>
                     <div class="card-body d-flex flex-column gap-2">
+
                         <!-- Dropdown untuk memindahkan tugas ke kategori lain -->
                         <form action="{{ route('tasks.changeList', $task->id) }}" method="POST">
                             @csrf
@@ -88,6 +91,7 @@
                                 @endforeach
                             </select>
                         </form>
+
                         <!-- Menampilkan prioritas tugas -->
                         <h6 class="fs-6">
                             📌 Prioritas:
@@ -136,6 +140,7 @@
                 </div>
             </form>
             <style>
+                
                 /* Gaya latar belakang halaman */
                 body {
                     background: linear-gradient(to right, #fce4ec, #f8bbd0);
