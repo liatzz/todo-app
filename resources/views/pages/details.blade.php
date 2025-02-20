@@ -4,54 +4,6 @@
 @section('content') 
 <!-- Mulai bagian content yang akan diisi di dalam template utama -->
 
-    <style>
-        /* Gaya latar belakang halaman */
-        body {
-            background: linear-gradient(to right, #fce4ec, #f8bbd0);
-            font-family: 'Poppins', sans-serif;
-            color: #6a1b9a;
-        }
-
-        /* Styling untuk kartu tampilan */
-        .card {
-            border: 2px solid #f48fb1;
-            border-radius: 15px;
-            transition: transform 0.3s ease-in-out;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background: rgba(255, 228, 225, 0.8);
-        }
-
-        /* Efek hover pada kartu */
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Tombol outline primary */
-        .btn-outline-primary {
-            border-color: #d81b60;
-            color: #d81b60;
-            font-weight: bold;
-        }
-
-        /* Hover untuk tombol outline primary */
-        .btn-outline-primary:hover {
-            background-color: #d81b60;
-            color: white;
-        }
-
-        /* Icon kupu-kupu */
-        .butterfly-icon {
-            width: 40px;
-            height: 40px;
-        }
-
-        /* Efek coret pada teks jika tugas sudah selesai */
-        .text-decoration-line-through {
-            text-decoration: line-through;
-            color: #b39ddb;
-        }
-    </style>
-
     <div id="content" class="container">
         <!-- Tombol kembali ke halaman utama -->
         <div class="d-flex align-items-center">
@@ -92,13 +44,23 @@
                     </div>
                     <div class="card-footer text-center d-flex justify-content-between">
                         <!-- Tombol untuk menandai tugas selesai atau belum -->
-                        <form action="{{ route('tasks.toggleComplete', $task->id) }}" method="POST">
-                            @csrf
-                            @method('PATCH')
-                            <button type="submit" class="btn btn-sm btn-success w-100">
-                                {{ $task->is_completed ? '✅ Tandai Belum Selesai' : '✔️ Tandai Selesai' }}
-                            </button>
-                        </form>
+                        <div class="card-footer text-center d-flex justify-content-between">
+                            <form id="toggleForm" action="{{ route('tasks.toggleComplete', $task->id) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <button type="button" class="btn btn-sm btn-success w-100" onclick="confirmToggle()">
+                                    {{ $task->is_completed ? '✅ Tandai Belum Selesai' : '✔️ Tandai Selesai' }}
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <script>
+                            function confirmToggle() {
+                                if (confirm("Apakah Anda yakin ingin mengubah status tugas ini?")) {
+                                    document.getElementById("toggleForm").submit();
+                                }
+                            }
+                        </script>                        
                         <!-- Tombol untuk menghapus tugas -->
                         <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
                             @csrf
@@ -173,6 +135,53 @@
                     <button type="submit" class="btn btn-primary">Edit ✍️</button>
                 </div>
             </form>
+            <style>
+                /* Gaya latar belakang halaman */
+                body {
+                    background: linear-gradient(to right, #fce4ec, #f8bbd0);
+                    font-family: 'Poppins', sans-serif;
+                    color: #6a1b9a;
+                }
+        
+                /* Styling untuk kartu tampilan */
+                .card {
+                    border: 2px solid #f48fb1;
+                    border-radius: 15px;
+                    transition: transform 0.3s ease-in-out;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    background: rgba(255, 228, 225, 0.8);
+                }
+        
+                /* Efek hover pada kartu */
+                .card:hover {
+                    transform: translateY(-5px);
+                }
+        
+                /* Tombol outline primary */
+                .btn-outline-primary {
+                    border-color: #d81b60;
+                    color: #d81b60;
+                    font-weight: bold;
+                }
+        
+                /* Hover untuk tombol outline primary */
+                .btn-outline-primary:hover {
+                    background-color: #d81b60;
+                    color: white;
+                }
+        
+                /* Icon kupu-kupu */
+                .butterfly-icon {
+                    width: 40px;
+                    height: 40px;
+                }
+        
+                /* Efek coret pada teks jika tugas sudah selesai */
+                .text-decoration-line-through {
+                    text-decoration: line-through;
+                    color: #b39ddb;
+                }
+            </style>
         </div>
     </div>
 @endsection 
